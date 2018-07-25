@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模板</title>
+</head>
+<body>
+	<h2>我是模板</h2>
+	{volist name='users' id='user'}
+		<br> 大名: {$key+1} {$user.username} ---芳龄:{$user.age}
+	{/volist}
+	
+	<hr>
+	{foreach name='users' item='user'}
+		<br> 大名: {$key+1} {$user.username} ---芳龄:{$user.age}
+	{/foreach}
+	
+	<hr>
+	{php}
+		echo '我是:' . $name . '---今年' . $age . '岁';
+	{/php}
+</body>
+</html>
