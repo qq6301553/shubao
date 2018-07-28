@@ -1,30 +1,42 @@
 <?php
 namespace app\index\controller;
 use think\Controller;
+use think\Db;
+use think\Model;
+use app\index\model\Category;
+use app\index\model\Article;
+use app\admin\model\User;
 
 class TestController extends Controller
 {
     public function index()
-    {	
-    	$name = '胡歌';
-    	$age = 32;
-    	$users = [
-    		['username' => '啊宝', 'age' => 23],
-    		['username' => '老胡', 'age' => 33],
-    		['username' => '大苏', 'age' => 26],
-    	];
-    	$this->assign([
-    			'name' => $name,
-    			'age' => $age,
-    		]);
-        return $this->fetch('index',[
-        		'users' => $users
-        	]);
+{           $user = new User();
+            $data = [
+                'username'=>'admin',
+                'password'=>md5('123456'.config('password_salt'))
+            ];
+            $user->save($data);
+//        $cate= new Article();
+//        $data = $cate->field('t1.*,t2.cat_name')
+//            ->alias('t1')
+//            ->join('tp_category t2','t1.cat_id = t2.cat_id','left')
+//            ->select()
+//            ->toArray();
+//        dump($data);
+//        $data = Db::name('category')
+//            ->alias('t1')
+//            ->field('t1.*,t2.cat_name as p_name')
+//            ->join('tp_category t2','t1.pid = t2.cat_id','left')
+//            ->select()
+//            ->toArray();
+//        dump($data);
+
+
     }
 
     public function test(){
 
-    	// $this->success('跳转成功',url('/'));
-    	$this->error('跳转失败,返回上一级');
+        dump(input('id'));
+        dump(input('username'));
     }
 }

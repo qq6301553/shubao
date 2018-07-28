@@ -27,16 +27,16 @@
                 <h2>首页</h2></a>
         </li>
         <li>
-            <a href="rbac.html" target="rightFrame"><img src="static/admin/images/icon06.png" title="权限设置" />
+            <a href="{:url('logout')}" target="rightFrame"><img src="static/admin/images/icon06.png" title="权限设置" />
                 <h2>权限设置</h2></a>
         </li>
     </ul>
     <div class="topright">
         <ul>
-            <li><a href="login.html" target="_parent">退出</a></li>
+            <li><a href="{:url('/logout')}" onclick="return confirm('确认要退出吗?')" target="_parent">退出</a></li>
         </ul>
         <div class="user">
-            <span>欢迎您，admin</span>
+            <span>欢迎您，{:session('username')}</span>
         </div>
     </div>
 </body>

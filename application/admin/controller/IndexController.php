@@ -2,7 +2,7 @@
 namespace app\admin\controller;
 use \think\Controller;
 
-class IndexController extends Controller
+class IndexController extends CommonController
 {
     public function index()
     {
@@ -21,7 +21,4 @@ class IndexController extends Controller
 		return $this->fetch();
 	}
 
-	public function login(){
-		return $this->fetch();
-	}
 }
